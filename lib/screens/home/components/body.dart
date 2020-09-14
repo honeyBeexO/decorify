@@ -1,4 +1,5 @@
 import 'package:decorify/components/title_text.dart';
+import 'package:decorify/models/category.dart';
 import 'package:decorify/screens/home/components/categories.dart';
 import 'package:decorify/screens/home/components/recommended_products.dart';
 import 'package:decorify/services/fetch_categories.dart';
@@ -19,16 +20,17 @@ class Body extends StatelessWidget {
               padding: EdgeInsets.all(SizeConfig.defaultSize * 2),
               child: TitleText(title: 'Browse by Category'),
             ),
-            FutureBuilder(
-              future: fetchCategories(),
-              //get the data from the API
-              //wait till the data is available then build the widget
-              builder: (context, snapshot) => snapshot.hasData
-                  ? Categories(
-                      categories: snapshot.data,
-                    )
-                  : Center(child: Image.asset('images/ripple.gif')),
-            ),
+            // FutureBuilder(
+            //   future: fetchCategories(),
+            //   //get the data from the API
+            //   //wait till the data is available then build the widget
+            //   builder: (context, snapshot) => snapshot.hasData
+            //       ? Categories(
+            //           categories: snapshot.data,
+            //         )
+            //       : Center(child: Image.asset('images/ripple.gif')),
+            // ),
+            Categories(categories: [category]),
             Divider(height: 5),
             Padding(
               padding: EdgeInsets.all(SizeConfig.defaultSize * 2), //20.0
